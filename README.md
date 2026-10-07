@@ -8,6 +8,8 @@
 把你 AI 的眼睛接到中文互联网上——抖音、小红书、B站、微博、知乎、公众号、头条，
 一条命令读内容。给 Claude Code 这类能跑命令行的 Agent 直接用。
 
+仓库地址：https://github.com/ZhongQuinnKing/caishi （平台变化、命令失效，欢迎提 issue）
+
 它不爬虫、不做批量：所有请求都走你自己的浏览器会话（opencli 浏览器桥），
 复用你已经登录的账号，就像你自己在浏览器里看一样。
 
@@ -19,14 +21,18 @@
 | 抖音 | 任意视频评论（内容/点赞/作者/回复数） | `opencli douyin comments "<链接>" --limit 20` |
 | 抖音 | 搜索、某用户作品列表 | `opencli douyin search "词"` / `user-videos <sec_uid>` |
 | 小红书 | 搜索（自研，绕开官方既有 bug） | `opencli xiaohongshu find "词" --limit 10` |
-| 小红书 | 笔记/收藏/评论 / 创作者数据 | `opencli xiaohongshu note / saved / comments / creator-stats` |
+| 小红书 | 笔记全解（自研：标题/正文/互动/图集）/ 收藏列表 | `opencli xiaohongshu read "<链接>"` / `saved` |
 | B站 | 搜索/详情/热门；字幕；官方 AI 总结 | `opencli bilibili search "词"` / `subtitle BVxxx` / `summary BVxxx` |
 | 微博 | 热搜 | `opencli weibo hot` |
 | 知乎 | 回答 / 专栏读取导出 Markdown | `opencli zhihu answer-detail <id>` / `download --url ...` |
 | 公众号 | 搜狗搜索；文章导出干净 Markdown | `opencli weixin search "词"` / `weixin download --url ...` |
 | 头条 | 热榜、推荐流（免登录免浏览器） | `opencli toutiao hot` |
+| 乐谱 | IMSLP 公有领域乐谱库：搜索、作品文件清单（自研） | `opencli imslp search "Chopin"` / `files <id>` |
+| 乐谱 | 弹琴吧：流行曲谱搜索、页面预览图（自研；完整谱为站点会员内容，不绕过） | `opencli tan8 search "曲名"` / `sheet <id>` |
+| 学术 | dblp：论文 / 作者 / 会议检索（自研，浏览器版自动过防机器人盾） | `opencli dblp find "关键词"` / `author` / `venue` / `paper` |
 
-带自研标记的三个命令（抖音 detail / 抖音 comments / 小红书 find）是本包自带，
+本包自研补充共八件 13 条命令（抖音 detail / comments / collection、小红书 find / read、
+IMSLP 与弹琴吧乐谱、dblp 学术检索），随包附带装在 `clis/` 目录，安装即就位；
 其余来自 opencli 官方适配器。逐平台实测状态与已知坑见 [`平台状态表.md`](./平台状态表.md)。
 
 ### 另带两个小工具
