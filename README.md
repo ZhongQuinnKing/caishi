@@ -86,8 +86,9 @@ Agent 会自己走上表里对应的命令。
 
 - [夜诵](https://github.com/ZhongQuinnKing/yesong) —— 离线信息哨兵：
   AI 睡着时替你盯世界（热榜 / GitHub 动态 / HN），零成本、不调大模型
-- [拾级](https://github.com/ZhongQuinnKing/shiji) —— 从校园到工位的军师：
-  装进 AI 助手的大学生成长顾问（简历 / 论文 / 考研 / 求职 / 职场全周期）
+- [拾级](https://github.com/ZhongQuinnKing/shiji) —— 从高三到工位的军师：
+  装进 AI 助手的成长顾问，151 篇覆盖高考志愿 / 大学 / 考研 / 考公 /
+  求职 / 职场 / 论文 / 留学等十二条线
 
 ## 合规与免责
 
