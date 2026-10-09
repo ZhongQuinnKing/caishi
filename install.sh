@@ -58,7 +58,8 @@ if [ -d "$HERE/bin" ]; then
     rm -f "$HOME/.local/bin/zhread" "$HOME/.local/bin/zhcheck" 2>/dev/null
     ln -sf "$HOME/.local/bin/zhread.py" "$HOME/.local/bin/zhread"
     ln -sf "$HOME/.local/bin/zhcheck.py" "$HOME/.local/bin/zhcheck"
-    echo "        zhread / zhcheck 已装到 ~/.local/bin/（确保它在 PATH 里）"
+    ln -sf "$HOME/.local/bin/zhupdate.py" "$HOME/.local/bin/zhupdate"
+    echo "        zhread / zhcheck / zhupdate 已装到 ~/.local/bin/（确保它在 PATH 里）"
 fi
 
 # 4.5) 一线 AI（MCP）适配器（可选：装了 opencli-mcp 才生效）
