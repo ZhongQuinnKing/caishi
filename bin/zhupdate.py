@@ -17,7 +17,28 @@ import sys
 import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
+
+
+def find_root():
+    """定位采诗仓库目录：环境变量 → 安装时记录的路径 → 仓内直跑（bin/ 上级）"""
+    env = os.environ.get("CAISHI_HOME", "").strip()
+    if env and os.path.isfile(os.path.join(env, "VERSION")):
+        return env
+    cfg = os.path.expanduser("~/.config/caishi/home")
+    try:
+        with open(cfg, encoding="utf-8") as f:
+            p = f.read().strip()
+        if p and os.path.isfile(os.path.join(p, "VERSION")):
+            return p
+    except OSError:
+        pass
+    up = os.path.dirname(HERE)
+    if os.path.isfile(os.path.join(up, "VERSION")):
+        return up
+    return ""
+
+
+ROOT = find_root()
 
 REMOTE_VERSION_URLS = [
     "https://cdn.jsdelivr.net/gh/ZhongQuinnKing/caishi@main/VERSION",
@@ -55,6 +76,10 @@ def run(cmd, cwd=None):
 
 def main():
     check_only = "--check" in sys.argv
+    if not ROOT:
+        print("找不到采诗仓库目录。请重跑一次 install.sh（它会记录路径），")
+        print("或设环境变量 CAISHI_HOME 指向仓库目录后再跑本命令。")
+        return 1
     lv = local_version()
     rv = remote_version()
 

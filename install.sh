@@ -60,6 +60,8 @@ if [ -d "$HERE/bin" ]; then
     ln -sf "$HOME/.local/bin/zhcheck.py" "$HOME/.local/bin/zhcheck"
     ln -sf "$HOME/.local/bin/zhupdate.py" "$HOME/.local/bin/zhupdate"
     echo "        zhread / zhcheck / zhupdate 已装到 ~/.local/bin/（确保它在 PATH 里）"
+    mkdir -p "$HOME/.config/caishi"
+    echo "$HERE" > "$HOME/.config/caishi/home"   # 记录仓库位置，供 zhupdate 定位
 fi
 
 # 4.5) 一线 AI（MCP）适配器（可选：装了 opencli-mcp 才生效）
