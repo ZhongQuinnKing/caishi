@@ -61,6 +61,17 @@ if [ -d "$HERE/bin" ]; then
     echo "        zhread / zhcheck 已装到 ~/.local/bin/（确保它在 PATH 里）"
 fi
 
+# 4.5) 一线 AI（MCP）适配器（可选：装了 opencli-mcp 才生效）
+if command -v opencli-mcp >/dev/null 2>&1 && [ -d "$HERE/mcp-adapters" ]; then
+    mkdir -p "$HOME/.opencli-mcp/adapters"
+    cp -R "$HERE/mcp-adapters/." "$HOME/.opencli-mcp/adapters/"
+    echo "[4.5] MCP 适配器已装入 ~/.opencli-mcp/adapters/（当前：web read）"
+    echo "        · 首次使用：对 AI 说一句「sites.enable web」启用"
+else
+    echo "[4.5] 未装 opencli-mcp，跳过 MCP 适配器"
+    echo "        （想给 Claude Desktop/Cursor 等一线 AI 用：npm install -g opencli-mcp && opencli-mcp setup，完成后重跑本脚本）"
+fi
+
 # 5) 技能（若本机有 Claude Code）
 if [ -d "$HOME/.claude/skills" ] && [ -d "$HERE/skills/zh-web" ]; then
     cp -R "$HERE/skills/zh-web" "$HOME/.claude/skills/" 2>/dev/null || true

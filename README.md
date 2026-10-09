@@ -30,10 +30,18 @@
 | 乐谱 | IMSLP 公有领域乐谱库：搜索、作品文件清单（自研） | `opencli imslp search "Chopin"` / `files <id>` |
 | 乐谱 | 弹琴吧：流行曲谱搜索、页面预览图（自研；完整谱为站点会员内容，不绕过） | `opencli tan8 search "曲名"` / `sheet <id>` |
 | 学术 | dblp：论文 / 作者 / 会议检索（自研，浏览器版自动过防机器人盾） | `opencli dblp find "关键词"` / `author` / `venue` / `paper` |
+| 网页 | 任意网页正文读取（自研；正文转纯文本，长文截 6 万字） | `opencli web read "<url>"` |
 
-本包自研补充共八件 13 条命令（抖音 detail / comments / collection、小红书 find / read、
-IMSLP 与弹琴吧乐谱、dblp 学术检索），随包附带装在 `clis/` 目录，安装即就位；
+本包自研补充共九件 14 条命令（抖音 detail / comments / collection、小红书 find / read、
+IMSLP 与弹琴吧乐谱、dblp 学术检索、网页正文读取），随包附带装在 `clis/` 目录，安装即就位；
 其余来自 opencli 官方适配器。逐平台实测状态与已知坑见 [`平台状态表.md`](./平台状态表.md)。
+
+### 一线 AI（MCP）
+
+不只有命令行的 AI 能用——通过官方 [opencli-mcp](https://github.com/jackwener/opencli-mcp)
+（Apache-2.0），Claude Desktop、Cursor、Codex、DeepSeek Harness 等任何 MCP 客户端都能接入
+同一套能力（同一个浏览器、同一份登录态）。现已上架 `web_read`（读任意网页），
+中文平台适配按需逐站移植中——装法与边界见 [MCP.md](./MCP.md)。
 
 ### 另带两个小工具
 
