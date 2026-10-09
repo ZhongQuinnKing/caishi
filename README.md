@@ -106,3 +106,6 @@ Agent 会自己走上表里对应的命令。
 
 名字取自《汉书·礼乐志》"乃立乐府，采诗夜诵"——采集中文互联网的声音，献给需要它的 AI。
 首版覆盖七个平台的读取能力：抖音 / B站 / 小红书 / 微博 / 知乎 / 公众号 / 头条。
+
+2026 年 10 月起，收录于 [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)
+（国内独立开发者项目清单，6 万+ 星）程序员版。
