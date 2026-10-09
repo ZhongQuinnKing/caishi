@@ -14,6 +14,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
@@ -21,6 +22,69 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 
 def run(cmd, timeout=300):
     return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+
+
+BROWSER_CHAIN = ["Google Chrome", "Microsoft Edge", "Brave Browser", "Chromium"]
+
+
+def bridge_up():
+    r = run(["opencli", "profile", "list"], timeout=30)
+    out = ((r.stdout or "") + (r.stderr or "")).lower()
+    if "no browser bridge profiles connected" in out:
+        return False
+    return "connected" in out
+
+
+def ensure_browser():
+    """桥不通时自动唤起浏览器（大部分用户不会提前开着浏览器）。
+
+    顺序：① 自定义唤起命令（环境变量 ZHREAD_WAKE_CMD 或 ~/.config/caishi/wake）
+         ② 常用浏览器链 Chrome → Edge → Brave → Chromium（打开即带已装的扩展）。
+    连上返回 True；尽力之后仍不通返回 False（调用方给出排查指引）。
+    """
+    if bridge_up():
+        return True
+
+    wake = os.environ.get("ZHREAD_WAKE_CMD", "").strip()
+    if not wake:
+        try:
+            with open(os.path.expanduser("~/.config/caishi/wake"), encoding="utf-8") as f:
+                wake = f.read().strip()
+        except OSError:
+            wake = ""
+    if wake:
+        try:
+            subprocess.run(wake, shell=True, capture_output=True, timeout=60)
+            for _ in range(4):
+                time.sleep(4)
+                if bridge_up():
+                    print("（已按配置唤起浏览器，桥就绪）", file=sys.stderr)
+                    return True
+        except Exception:
+            pass
+
+    import platform
+    for name in BROWSER_CHAIN:
+        try:
+            if platform.system() == "Darwin":
+                r = run(["open", "-a", name], timeout=30)
+            elif platform.system() == "Windows":
+                r = run(["cmd", "/c", "start", "", name], timeout=30)
+            else:
+                r = run(["which", name.split()[0].lower()], timeout=10)
+                if r.returncode != 0:
+                    continue
+                subprocess.Popen([name.split()[0].lower()])
+        except Exception:
+            continue
+        if r.returncode != 0:
+            continue
+        for _ in range(4):
+            time.sleep(4)
+            if bridge_up():
+                print(f"（已自动打开 {name}，浏览器桥就绪）", file=sys.stderr)
+                return True
+    return False
 
 
 def detect(u):
@@ -237,6 +301,10 @@ def main():
     args = [a for a in sys.argv[1:]]
     if not args:
         sys.exit('用法: zhread.py "<链接>" [--save 目录] [--comments N]')
+    if not ensure_browser():
+        sys.exit("浏览器桥未连接，自动唤起 Chrome/Edge/Brave 后仍未连上。\n"
+                 "请检查：① 浏览器扩展已安装并启用（见仓库 install.sh 第 3 步）\n"
+                 "       ② 打开的浏览器里有对应平台的登录态（扫码一次，长期有效）")
     save_dir = None
     comments = 0
     if "--save" in args:
