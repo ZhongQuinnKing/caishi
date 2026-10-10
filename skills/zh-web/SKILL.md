@@ -17,7 +17,7 @@ description: 读中文互联网内容——抖音、小红书、B站、微博、
 
 | 平台 | 首选命令 | 备注 |
 |------|----------|------|
-| **网页·正文读取** | `opencli web read "<url>" [-f yaml] [--wait N] [--selector CSS]` | **自研**；通用一路——正文转纯文本（长文截 6 万字）。**实测边界**：静态页/知识库/JS 渲染页（GitHub、百科、MDN 级）✓；需登录的站先在同一浏览器登录一次即可；**PDF 直链读不了**；SPA 慢载加 `--wait`、想只在正文区读加 `--selector` |
+| **网页·正文读取** | `opencli web read "<url>" [-f yaml] [--wait N] [--selector CSS]` | **自研**；通用一路——正文转纯文本（长文截 6 万字）。**实测边界**：静态页/知识库/JS 渲染页（GitHub、百科、MDN 级）✓；需登录的站先在同一浏览器登录一次即可；**PDF 直链读不了**；SPA 慢载加 `--wait`、想只在正文区读加 `--selector`。**空结果识别**：百科类页面词条不存在时不报错，会返回站点首页模板（title 不是词条名就是空），换词条或换平台重试。**图为主的内容读不到**：数据在图片里时只拿到图外文字，换文字版源。百科页面会混入导航噪声（页头页脚菜单），提取正文时按关键词定位段落 |
 | 抖音·单链接全解 | `opencli douyin detail "<链接>" -f yaml` | 自研；文案/作者/互动数/发布时间/时长/无水印下载地址 |
 | 抖音·评论 | `opencli douyin comments "<链接>" --limit 20 -f yaml` | 自研；任意视频 |
 | 抖音·搜索 | `opencli douyin search "词" -f yaml` | 官方 |
@@ -33,7 +33,7 @@ description: 读中文互联网内容——抖音、小红书、B站、微博、
 | 知乎·回答 | `opencli zhihu answer-detail <回答ID或链接>` | 需登录；正文全文 |
 | 知乎·专栏导出 | `opencli zhihu download --url "<专栏文章链接>" --output <目录>` | 需登录；全文导出 |
 | 公众号·搜索 | `opencli weixin search "词" -f yaml` | 走搜狗，免登录 |
-| 公众号·文章导出 Markdown | `opencli weixin download --url "<mp.weixin.qq.com链接>" --output <目录>` | 免登录 |
+| 公众号·文章导出 Markdown | `opencli weixin download --url "<mp.weixin.qq.com链接>" --output <目录>` | 免登录；**搜狗搜索给的 weixin.sogou.com/link?url=… 跳转链接不必先换成 mp 链接，web read 直接可读**（download 反而不收跳转链接） |
 | 头条·热榜/推荐流 | `opencli toutiao hot / recommend` | 免登录免浏览器 |
 
 ## 无命令路径（豆包等纯对话环境）
