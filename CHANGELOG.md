@@ -1,5 +1,13 @@
 # 更新记录
 
+## v1.1.0 · 2026-10-12
+
+- **MCP 独立包上仓**：`caishi-mcp/` 独立包（npm：`caishi-mcp`，官方 registry 在册）
+  连同四站适配器入仓——B站视频 / 抖音详情 / 小红书笔记 / 网页正文；含启动器、
+  server.json 与演示动图（README 顶部）。
+- `mcp-adapters/` 补齐 bilibili / douyin / xiaohongshu 三站（与包内同源）；install.sh 同步。
+- README / MCP.md 同步 MCP 现状：四站已上架，装法两条（独立包一条命令 / 手动装适配器）。
+
 ## v1.0.2 · 2026-10-10
 
 - **zh-web 技能文档补实战经验**（来自一轮音乐资料检索实战）：

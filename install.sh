@@ -68,8 +68,9 @@ fi
 if command -v opencli-mcp >/dev/null 2>&1 && [ -d "$HERE/mcp-adapters" ]; then
     mkdir -p "$HOME/.opencli-mcp/adapters"
     cp -R "$HERE/mcp-adapters/." "$HOME/.opencli-mcp/adapters/"
-    echo "[4.5] MCP 适配器已装入 ~/.opencli-mcp/adapters/（当前：web read）"
-    echo "        · 首次使用：对 AI 说一句「sites.enable web」启用"
+    echo "[4.5] MCP 适配器已装入 ~/.opencli-mcp/adapters/（B站／抖音／小红书／网页 四站）"
+    echo "        · 首次使用：按需启用站点（对 AI 说「sites.enable <站点名>」，如 bilibili／douyin／xiaohongshu／web）"
+    echo "        · 更省事：npm install -g caishi-mcp（独立包自带四站适配器与启动器）"
 else
     echo "[4.5] 未装 opencli-mcp，跳过 MCP 适配器"
     echo "        （想给 Claude Desktop/Cursor 等一线 AI 用：npm install -g opencli-mcp && opencli-mcp setup，完成后重跑本脚本）"

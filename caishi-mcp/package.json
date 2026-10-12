@@ -1,0 +1,48 @@
+{
+  "name": "caishi-mcp",
+  "mcpName": "io.github.ZhongQuinnKing/caishi",
+  "version": "1.0.1",
+  "description": "Read Chinese platforms from any MCP client: Bilibili, Douyin, Xiaohongshu and any web page, through your own logged-in Chrome (via opencli-mcp).",
+  "type": "module",
+  "bin": {
+    "caishi-mcp": "bin/launch.mjs"
+  },
+  "files": [
+    "bin/",
+    "mcp-adapters/",
+    "server.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "opencli-mcp": "^0.0.29"
+  },
+  "scripts": {
+    "setup": "opencli-mcp setup"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "browser",
+    "bilibili",
+    "douyin",
+    "xiaohongshu",
+    "china",
+    "chinese",
+    "scraper",
+    "chrome"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhongQuinnKing/caishi.git"
+  },
+  "homepage": "https://github.com/ZhongQuinnKing/caishi",
+  "bugs": {
+    "url": "https://github.com/ZhongQuinnKing/caishi/issues"
+  },
+  "license": "MIT",
+  "author": "ZhongQuinnKing"
+}

@@ -1,0 +1,21 @@
+{
+  "manifest_version": "0.2",
+  "name": "caishi-mcp",
+  "version": "1.0.0",
+  "description": "Read Chinese platforms from any MCP client: Bilibili, Douyin, Xiaohongshu and any web page, through your own logged-in Chrome (via opencli-mcp).",
+  "author": {
+    "name": "ZhongQuinnKing"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "bin/launch.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/bin/launch.mjs"
+      ],
+      "env": {}
+    }
+  },
+  "license": "MIT"
+}

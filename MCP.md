@@ -24,22 +24,31 @@ site adapter 的形式挂进去，AI 一条工具调用就能取内容。
    bash install.sh          # 自动把 mcp-adapters/ 装进 ~/.opencli-mcp/adapters/
    ```
 
-   首次使用对 AI 说一句「sites.enable web」启用即可。
+   首次使用按需启用站点：对 AI 说「sites.enable web」（B站／抖音／小红书同理，换对应站点名）。
+
+更省事的一条路：直接 `npm install -g caishi-mcp`，独立包自带四站适配器与启动器，
+不用手动搬文件（见 [caishi-mcp/README.md](./caishi-mcp/README.md)）。
 
 ## 现在能用什么
 
-| 工具 | 说明 |
-|------|------|
-| `web_read` | 读任意网页正文（转纯文本）。实测：静态页、知识库、JS 渲染页（GitHub、百科、MDN 级）可用；需登录的站先在同一浏览器登录一次；PDF 直链读不了 |
+MCP 面为单一工具 `site_run`；四站命令经它调用——均经真实验证上架，其余平台按需继续移植：
 
-中文平台的适配器（抖音 / 小红书 / B站 / 公众号等）按需从命令行版**逐站移植**——
-每一站都经过真实验证才上架，进展看仓库动态。
+| 站命令 | 说明 |
+|------|------|
+| `bilibili` / `video` | B站视频：标题、UP主、时长、播放/点赞/投币/收藏、发布日期、简介 |
+| `douyin` / `detail` | 抖音单条：文案、作者、四项互动数、发布时间、音乐、无水印播放地址、图集 |
+| `xiaohongshu` / `note` | 小红书笔记：标题、作者、正文、点赞/收藏/评论、标签 |
+| `web` / `read` | 任意网页正文（转纯文本）：静态页、知识库、JS 渲染页可用；需登录的站先登录一次；PDF 直链读不了 |
+
+四站随独立包 [`caishi-mcp`](./caishi-mcp/) 发布，一条命令接入：`npm install -g caishi-mcp`；逐站参数、返回字段与安装细节见 [caishi-mcp/README.md](./caishi-mcp/README.md)。
 
 ## 用法示例
 
 在接好 MCP 的 AI 里直接说：
 
-> 用 web_read 读一下这篇文章 [链接]，给我要点
+> 读一下这篇文章 [链接]，给我要点
+
+> 这条 B 站视频讲了什么 [链接]
 
 ## 边界（诚实）
 
