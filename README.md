@@ -13,13 +13,13 @@
 
 英文全文版：[README.en.md](./README.en.md)（English full version）
 
+> **只读、不爬虫、不做批量**：所有请求都走你自己的浏览器会话（opencli 浏览器桥），
+> 复用你已经登录的账号，就像你自己在浏览器里看一样。
+
 把你 AI 的眼睛接到中文互联网上——抖音、小红书、B站、微博、知乎、公众号、头条，
 一条命令读内容。给 Claude Code 这类能跑命令行的 Agent 直接用。
 
 仓库地址：https://github.com/ZhongQuinnKing/caishi （平台变化、命令失效，欢迎提 issue）
-
-它不爬虫、不做批量：所有请求都走你自己的浏览器会话（opencli 浏览器桥），
-复用你已经登录的账号，就像你自己在浏览器里看一样。
 
 ## 能干什么
 
