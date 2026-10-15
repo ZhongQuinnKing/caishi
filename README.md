@@ -126,7 +126,7 @@ Agent 会自己走上表里对应的命令。
 
 ## 参与
 
-问题（平台失效、新平台建议）与改进建议走 issue；动手改代码或文档前，先读 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+问题（平台失效、新平台建议）与改进建议走 issue；想法与交流走 [Discussions](https://github.com/ZhongQuinnKing/caishi/discussions)；动手改代码或文档前，先读 [CONTRIBUTING.md](./CONTRIBUTING.md)。
 
 ## 状态
 
