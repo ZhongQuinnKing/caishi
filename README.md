@@ -4,7 +4,7 @@
 
 > 原作者：ZhongQuinnKing（主号署名）
 > 许可：见 [LICENSE](LICENSE)（分层：代码 MIT，内容与文档 CC BY-NC-ND 4.0；五档：免费用／自改自由／转发署名／改版发布先授权／商用零豁免）
-> 商用与合作：请先联系（通道：本仓库 issue）
+> 商用与合作：请先联系 hello@xinchuan.dev（标题注明【商用授权】或【改编授权】）
 
 > **English TL;DR** — A capability pack that lets AI agents read the Chinese internet:
 > Douyin, Bilibili, Xiaohongshu, WeChat Official Accounts, Zhihu, Toutiao + 30+ academic /
