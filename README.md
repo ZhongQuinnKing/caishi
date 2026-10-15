@@ -135,3 +135,5 @@ Agent 会自己走上表里对应的命令。
 
 2026 年 10 月起，收录于 [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)
 （国内独立开发者项目清单，6 万+ 星）程序员版。
+
+致谢名单见 [ACKNOWLEDGMENTS.md](./ACKNOWLEDGMENTS.md)。
