@@ -47,7 +47,7 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 mkdir -p "$HOME/.opencli/clis"
 if [ -d "$HERE/clis" ]; then
     cp -R "$HERE/clis/." "$HOME/.opencli/clis/"
-    echo "[4/5] 自研命令已装入 ~/.opencli/clis/（douyin detail/comments、xiaohongshu find）"
+    echo "[4/5] 自研命令已装入 ~/.opencli/clis/（自研九件 14 条命令：抖音 detail/comments/collection、小红书 find/read、IMSLP、弹琴吧、dblp；网页一路随 opencli 官方就位）"
 else
     echo "[4/5] [!] 没找到 clis/ 目录，跳过"
 fi
