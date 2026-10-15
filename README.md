@@ -11,6 +11,8 @@
 > developer / lifestyle sites. Read-only, reuses your own browser sessions, one link at a time —
 > no scraping at scale.
 
+英文全文版：[README.en.md](./README.en.md)（English full version）
+
 把你 AI 的眼睛接到中文互联网上——抖音、小红书、B站、微博、知乎、公众号、头条，
 一条命令读内容。给 Claude Code 这类能跑命令行的 Agent 直接用。
 
@@ -39,8 +41,9 @@
 | 网页 | 任意网页正文读取（自研；正文转纯文本，长文截 6 万字） | `opencli web read "<url>"` |
 
 本包自研补充共九件 14 条命令（抖音 detail / comments / collection、小红书 find / read、
-IMSLP 与弹琴吧乐谱、dblp 学术检索、网页正文读取），随包附带装在 `clis/` 目录，安装即就位；
-其余来自 opencli 官方适配器。逐平台实测状态与已知坑见 [`平台状态表.md`](./平台状态表.md)。
+IMSLP 与弹琴吧乐谱、dblp 学术检索、网页正文读取）：命令行各件随包附带装在 `clis/` 目录、
+安装即就位，网页一路随 opencli 官方适配器就位；其余平台命令来自 opencli 官方适配器。
+逐平台实测状态与已知坑见 [`平台状态表.md`](./平台状态表.md)。
 
 ### 一线 AI（MCP）
 
@@ -119,7 +122,7 @@ Agent 会自己走上表里对应的命令。
 ## 它站在谁的肩膀上
 
 核心运行时是 [opencli](https://github.com/jackwener/opencli)（"把任意网站变成 CLI"）。
-本包做三件事：给中文平台做实测、补上缺的命令（自研八件、13 条命令）、把登录与踩坑经验写成说明书。
+本包做三件事：给中文平台做实测、补上缺的命令（自研九件、14 条命令）、把登录与踩坑经验写成说明书。
 
 ## 状态
 

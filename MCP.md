@@ -7,6 +7,8 @@ Claude Code、Claude Desktop、Codex、Cursor、OpenCode、DeepSeek Harness（ds
 原理一句话：opencli-mcp 让 AI 通过 MCP 操作**你已登录的 Chrome**；采诗的适配器以
 site adapter 的形式挂进去，AI 一条工具调用就能取内容。
 
+英文版：[MCP.en.md](./MCP.en.md)（English version）
+
 ## 装（两件）
 
 1. opencli-mcp（含 Chrome 扩展）：
