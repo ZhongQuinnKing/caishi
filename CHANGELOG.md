@@ -4,6 +4,7 @@
 
 - **可选通道 `cloak/`（反爬挑战墙兜底）**：公开页被反爬挑战系统拦截（主链 403）时，按需启用隐身浏览器通道——独立 venv、默认不装、内核二进制不随仓分发（由上游按需获取）；只读公开内容，不绕登录墙与付费墙。含 `fetch.py` 小件、`get_cloakbrowser.sh` 获取脚本与边界说明（`cloak/README.md`）。
 - 实测：IDP（挑战类墙）主链 403 → 通道自动过挑战 → 真页正文（12 至 19 秒；偶有未过、重试即得）；BnF Gallica 复测真页可读（约 6 秒）。英文说明候选、随需再补。
+- **Glama 收录预备**：`caishi-mcp/` 加 Dockerfile（stdio 起服务；健康检查口径＝起得来、能应答 initialize 与 tools/list）、仓根加 `glama.json`（maintainers 声明，照官方 schema）。供 awesome-mcp-servers 收录检查与 Glama 目录收录使用。
 
 ## v1.1.0 · 2026-10-12
 
