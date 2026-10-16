@@ -45,6 +45,10 @@ AI that cannot run shell commands is not left out. Through the official [opencli
 ### Three companion utilities
 
 - **`zhread "<link>"`**: read the Chinese internet with one command. It detects the platform (Douyin / Bilibili / WeChat Official Accounts / Zhihu / Xiaohongshu / score sites) and prints a uniform Markdown shape; `--save DIR` writes it to a file. This is the one that crosses platforms.
+
+  ![zhread demo](docs/demo.gif)
+
+  *Real recording: `zhread` reads a Bilibili video in one command. Wait phase compressed; output uncut.*
 - **`zhcheck`**: platform health check. A light pass by default (it probes only the browser bridge, opening no pages); `--deep` probes platform by platform (it opens each platform's pages in turn and warns beforehand). When a platform breaks, run this first.
 - **`zhupdate`**: update and repair. It compares against the latest remote version, then for a git install pulls and re-runs the deploy; for problems it cannot fix it hands you a report template. Platforms redesign often, and a fixed build can land the same day. One checks, one fixes.
 
