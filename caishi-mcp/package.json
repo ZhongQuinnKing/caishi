@@ -1,7 +1,7 @@
 {
   "name": "caishi-mcp",
   "mcpName": "io.github.ZhongQuinnKing/caishi",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "Read Chinese platforms from any MCP client: Bilibili, Douyin, Xiaohongshu and any web page, through your own logged-in Chrome (via opencli-mcp).",
   "type": "module",
   "bin": {
