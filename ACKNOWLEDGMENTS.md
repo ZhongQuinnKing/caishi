@@ -4,8 +4,8 @@
 
 ## 运行时
 
-- [opencli](https://github.com/jackwener/opencli)（Apache-2.0）——「把任意网站变成 CLI」：浏览器桥、命令框架与官方适配器。上游作者的维护与开放，是本包一切命令的地基。
-- [opencli-mcp](https://github.com/jackwener/opencli-mcp)（Apache-2.0）——MCP 通道：让 Claude Desktop、Cursor 等一线 AI 客户端接进同一套能力。
+- [opencli](https://github.com/jackwener/opencli)（Apache-2.0）——「把任意网站变成 CLI」：浏览器桥、命令框架与官方适配器。上游作者的维护与开放，是本包一切命令的地基，也是 `caishi-mcp` 的浏览器引擎。
+- [opencli-mcp](https://github.com/jackwener/opencli-mcp)（Apache-2.0）——采诗 MCP 通道早期（1.2.0 及以前）曾用其作协议宿主；自 1.3.0 起协议层自实现，此条留作致谢。
 
 ## 收录与分发
 

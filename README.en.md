@@ -40,7 +40,7 @@ In-house additions make up nine pieces covering 14 commands (Douyin detail / com
 
 ### AI-first clients (MCP)
 
-AI that cannot run shell commands is not left out. Through the official [opencli-mcp](https://github.com/jackwener/opencli-mcp) (Apache-2.0), any MCP client works: Claude Desktop, Cursor, Codex, DeepSeek Harness and others all reach the same capabilities (the same browser, the same signed-in session). Four site commands (Bilibili video / Douyin detail / Xiaohongshu note / any web page) come in a standalone package, [`caishi-mcp`](./caishi-mcp/): `npm install -g caishi-mcp`. Setup and limits are in [caishi-mcp/README.md](./caishi-mcp/README.md) and [MCP.en.md](./MCP.en.md).
+AI that cannot run shell commands is not left out. The standalone package [`caishi-mcp`](./caishi-mcp/) is a self-contained MCP server (the protocol layer is implemented in the package itself, with no MCP SDK dependency; the browser engine installs with it), so any MCP client works: Claude Desktop, Cursor, Codex, DeepSeek Harness and others all reach the same capabilities (the same browser, the same signed-in session). Four site commands (Bilibili video / Douyin detail / Xiaohongshu note / any web page): `npm install -g caishi-mcp`. Setup and limits are in [caishi-mcp/README.md](./caishi-mcp/README.md) and [MCP.en.md](./MCP.en.md).
 
 ### Three companion utilities
 

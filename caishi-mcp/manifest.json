@@ -1,8 +1,8 @@
 {
   "manifest_version": "0.2",
   "name": "caishi-mcp",
-  "version": "1.0.0",
-  "description": "Read Chinese platforms from any MCP client: Bilibili, Douyin, Xiaohongshu and any web page, through your own logged-in Chrome (via opencli-mcp).",
+  "version": "1.3.0",
+  "description": "Self-contained MCP server. Read Chinese platforms from any MCP client: Bilibili, Douyin, Xiaohongshu and any web page, through your own logged-in browser session.",
   "author": {
     "name": "ZhongQuinnKing"
   },

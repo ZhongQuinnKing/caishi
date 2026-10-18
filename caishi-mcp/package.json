@@ -1,28 +1,27 @@
 {
   "name": "caishi-mcp",
   "mcpName": "io.github.ZhongQuinnKing/caishi",
-  "version": "1.2.0",
-  "description": "Read Chinese platforms from any MCP client: Bilibili, Douyin, Xiaohongshu and any web page, through your own logged-in Chrome (via opencli-mcp).",
+  "version": "1.3.0",
+  "description": "Self-contained MCP server. Read Chinese platforms from any MCP client: Bilibili, Douyin, Xiaohongshu and any web page, through your own logged-in browser session.",
   "type": "module",
   "bin": {
     "caishi-mcp": "bin/launch.mjs"
   },
   "files": [
     "bin/",
+    "lib/",
     "mcp-adapters/",
     "server.json",
     "README.md",
     "LICENSE"
   ],
   "engines": {
-    "node": ">=22"
+    "node": ">=20.18.1"
   },
   "dependencies": {
-    "opencli-mcp": "^0.0.29"
+    "@jackwener/opencli": "^1.8.8"
   },
-  "scripts": {
-    "setup": "opencli-mcp setup"
-  },
+  "scripts": {},
   "keywords": [
     "mcp",
     "model-context-protocol",

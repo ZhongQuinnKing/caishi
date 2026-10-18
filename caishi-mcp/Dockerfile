@@ -7,6 +7,7 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install --omit=dev
 COPY bin/ bin/
+COPY lib/ lib/
 COPY mcp-adapters/ mcp-adapters/
 COPY server.json ./
 COPY LICENSE ./

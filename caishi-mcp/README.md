@@ -19,21 +19,22 @@ platforms.
 
 ## What you get
 
-The MCP surface is one tool, `site_run`. This package ships four site commands through it:
+A self-contained MCP server (the protocol layer is implemented in this package, no MCP SDK
+dependency). Four tools, one per site command:
 
-| Site command | Args | Returns |
+| Tool | Args | Returns |
 |---|---|---|
-| `bilibili` / `video` | `bvid` (BV id, video URL or b23.tv short link), optional `page` | title, author, duration, views/likes/coins/favorites, publish date, description |
-| `douyin` / `detail` | `target` (share short link, video URL or numeric id) | caption, author, digg/comment/collect/share counts, created time, music, no-watermark play address, image gallery |
-| `xiaohongshu` / `note` | `url` (full note link, ideally with xsec_token) | title, author, full text, likes/collects/comments, tags |
-| `web` / `read` | `url`, optional `wait`, `selector` | any page's main text, through your logged-in browser |
+| `bilibili/video` | `bvid` (BV id, video URL or b23.tv short link), optional `page` | title, author, duration, views/likes/coins/favorites, publish date, description |
+| `douyin/detail` | `target` (share short link, video URL or numeric id) | caption, author, digg/comment/collect/share counts, created time, music, no-watermark play address, image gallery |
+| `xiaohongshu/note` | `url` (full note link, ideally with xsec_token) | title, author, full text, likes/collects/comments, tags |
+| `web/read` | `url`, optional `wait`, `selector` | any page's main text, through your logged-in browser |
 
 Works from Claude Code, Claude Desktop, Codex, Cursor and any other MCP client.
 
 ## Requirements
 
-- Node.js >= 22
-- Google Chrome (the extension works alongside your normal browsing; nothing is uploaded)
+- Node.js >= 20.18.1
+- Google Chrome (used in the background alongside your normal browsing; nothing is uploaded)
 - An AI client that speaks MCP
 
 ## Install
@@ -61,14 +62,9 @@ Or in an `mcpServers` config block:
 }
 ```
 
-First run connects Chrome:
-
-```bash
-npx caishi-mcp setup
-```
-
-This installs the browser bridge extension and pairs it. One time only. After that, every tool
-call goes through your real browser — same cookies, same login, same network.
+First tool call opens the browser in the background. The engine (OpenCLI) is installed
+automatically as a dependency. After that, every tool call goes through your real browser —
+same cookies, same login, same network.
 
 For pages that require a signed-in session (Douyin video pages, Xiaohongshu notes), sign in to
 that site in Chrome once. The tools then read as you.
@@ -79,7 +75,7 @@ Ask your AI client:
 
 > Read this Bilibili video and tell me its title, author and view count: https://www.bilibili.com/video/BV...
 
-The client calls `site_run` with `site: "bilibili", command: "video"`, gets the metadata back,
+The client calls `bilibili/video` with the URL, gets the metadata back,
 and answers. The same works for a Douyin share link or a Xiaohongshu note.
 
 ## Notes and limits
@@ -96,5 +92,5 @@ see the repository's LICENSE for the full scope.
 
 ## Credits
 
-Built on [opencli-mcp](https://github.com/jackwener/opencli-mcp) (Apache-2.0) by jackwener,
-which provides the browser bridge this package plugs into.
+Browser engine by [OpenCLI](https://github.com/jackwener/opencli) (the `@jackwener/opencli`
+package). The MCP protocol layer and the site adapters in this package are self-implemented.

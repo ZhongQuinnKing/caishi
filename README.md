@@ -47,10 +47,10 @@ IMSLP 与弹琴吧乐谱、dblp 学术检索、网页正文读取）：命令行
 
 ### 一线 AI（MCP）
 
-不只有命令行的 AI 能用——通过官方 [opencli-mcp](https://github.com/jackwener/opencli-mcp)
-（Apache-2.0），Claude Desktop、Cursor、Codex、DeepSeek Harness 等任何 MCP 客户端都能接入
-同一套能力（同一个浏览器、同一份登录态）。四站命令已上架（B站视频／抖音详情／小红书笔记／
-任意网页正文），随独立包 [`caishi-mcp`](./caishi-mcp/) 发布：`npm install -g caishi-mcp`。
+不只有命令行的 AI 能用——独立包 [`caishi-mcp`](./caishi-mcp/) 是**自包含 MCP 服务器**（协议层
+自实现、无 MCP SDK 依赖；浏览器引擎随包自动装），Claude Desktop、Cursor、Codex、DeepSeek Harness
+等任何 MCP 客户端都能接入同一套能力（同一个浏览器、同一份登录态）。四站命令已上架（B站视频／
+抖音详情／小红书笔记／任意网页正文）：`npm install -g caishi-mcp`。
 装法与边界见 [caishi-mcp/README.md](./caishi-mcp/README.md) 与 [MCP.md](./MCP.md)。
 
 ### 另带三个小工具

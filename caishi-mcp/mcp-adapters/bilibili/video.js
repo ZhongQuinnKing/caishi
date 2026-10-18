@@ -1,6 +1,6 @@
 // 采诗 · bilibili/video — 视频元数据（标题/UP主/时长/统计/简介/分P）
 // 移植自 opencli 命令行版 clis/bilibili/video.js（apiget 口径）；页内取数，不直连。
-import { defineAdapter } from 'opencli-mcp/adapter-sdk';
+import { defineAdapter } from '../../lib/adapter-sdk.mjs';
 
 function extractBvid(text) {
   if (!text) return '';

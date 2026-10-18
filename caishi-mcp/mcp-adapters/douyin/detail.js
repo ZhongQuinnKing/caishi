@@ -1,7 +1,7 @@
 // 采诗 · douyin/detail — 单条视频全解（短链/链接/ID → 文案、互动、作者、下载地址、图集）
 // 移植自抖音技能/douyin-detail.js（2026-10-06 建）＋命令行版；关键设计保留：
 // 详情接口必须在已登录页上下文里 fetch（同源自动附签），Node 直连会被风控。
-import { defineAdapter } from 'opencli-mcp/adapter-sdk';
+import { defineAdapter } from '../../lib/adapter-sdk.mjs';
 
 function extractVideoId(text) {
   if (!text) return '';

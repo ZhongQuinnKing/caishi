@@ -1,7 +1,7 @@
 // 采诗 · xiaohongshu/note — 笔记正文与互动数据（DOM 提取）
 // 移植自 opencli 命令行版 clis/xiaohongshu/note.js（NOTE_EXTRACT_JS 原样内嵌；
 // 风险旗标如实结构化返回，不硬编）。建议传带 xsec_token 的完整笔记链接。
-import { defineAdapter } from 'opencli-mcp/adapter-sdk';
+import { defineAdapter } from '../../lib/adapter-sdk.mjs';
 
 const NOTE_EXTRACT_JS = `
 (() => {

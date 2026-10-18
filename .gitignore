@@ -1,12 +1,8 @@
 __pycache__/
 *.pyc
 
-# 上架·M1b 演示工作区（含本地会话录制与演示专属配置，不入库）
-上架/M1b_demo/.claude-demo/
-上架/M1b_demo/node_modules/
-上架/M1b_demo/*.jsonl
-上架/M1b_demo/capture.bin
-上架/M1b_demo/*.gif
+# 上架·M1 内部工作档（令件/接续点/收口报告/演示工作区，不入库）
+上架/
 
 # caishi-mcp 包（工作区）
 caishi-mcp/node_modules/

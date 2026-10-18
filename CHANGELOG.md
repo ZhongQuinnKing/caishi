@@ -1,5 +1,18 @@
 # 更新记录
 
+## v1.3.0 · 2026-10-18
+
+- **`caishi-mcp` 自实现 MCP 协议层（去包装化）**：去掉 opencli-mcp 依赖，
+  stdio 服务器为本包自实现——initialize／tools/list／tools/call／ping／notifications
+  全套 JSON-RPC 帧处理，零 MCP SDK 依赖。浏览器引擎改用 opencli 官方引擎
+  （`@jackwener/opencli`，随包自动安装）；登录态与浏览器会话口径不变。
+- 工具面由单一 `site_run` 改为四工具直呼：`bilibili/video`、`douyin/detail`、
+  `xiaohongshu/note`、`web/read`（适配器逻辑原样保留，仅契约宿主换成本包
+  `lib/adapter-sdk.mjs`）。
+- README／MCP 文档／description 口径同步为 self-contained；不再需要 `setup`
+  ／手动搬适配器。自测：initialize 与 tools/list 全通，`web/read` 真拉通
+  （真实浏览器会话取正文）。
+
 ## v1.2.0 · 2026-10-15
 
 - **可选通道 `cloak/`（反爬挑战墙兜底）**：公开页被反爬挑战系统拦截（主链 403）时，按需启用隐身浏览器通道——独立 venv、默认不装、内核二进制不随仓分发（由上游按需获取）；只读公开内容，不绕登录墙与付费墙。含 `fetch.py` 小件、`get_cloakbrowser.sh` 获取脚本与边界说明（`cloak/README.md`）。
