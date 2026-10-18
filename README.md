@@ -1,6 +1,6 @@
 # 采诗 · 给 AI 用的中文互联网能力包
 
-[![Listed on mcmservers.org](https://mcmservers.org/badge.svg)](https://mcmservers.org/servers/zhongquinnking/caishi)
+[![Listed on mcmservers.org](https://mcmservers.org/badge.svg)](https://mcmservers.org/servers/zhongquinnking/caishi) [![caishi MCP server](https://glama.ai/mcp/servers/ZhongQuinnKing/caishi/badges/score.svg)](https://glama.ai/mcp/servers/ZhongQuinnKing/caishi)
 
 > 原作者：ZhongQuinnKing（主号署名）
 > 许可：见 [LICENSE](LICENSE)（分层：代码 MIT，内容与文档 CC BY-NC-ND 4.0；五档：免费用／自改自由／转发署名／改版发布先授权／商用零豁免）
