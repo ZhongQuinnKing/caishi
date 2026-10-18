@@ -3,8 +3,8 @@
 [![Listed on mcmservers.org](https://mcmservers.org/badge.svg)](https://mcmservers.org/servers/zhongquinnking/caishi) [![caishi MCP server](https://glama.ai/mcp/servers/ZhongQuinnKing/caishi/badges/score.svg)](https://glama.ai/mcp/servers/ZhongQuinnKing/caishi)
 
 > 原作者：ZhongQuinnKing（主号署名）
-> 许可：见 [LICENSE](LICENSE)（分层：代码 MIT，内容与文档 CC BY-NC-ND 4.0；五档：免费用／自改自由／转发署名／改版发布先授权／商用零豁免）
-> 商用与合作：请先联系 hello@xinchuan.dev（标题注明【商用授权】或【改编授权】）
+> 许可：见 [LICENSE](LICENSE)（分层：代码 MIT，内容与文档 CC BY-NC-ND 4.0；五档：免费用／自改自由／转发署名／改版发布先授权／商用零豁免——本许可本身不授予商用权）
+> 商用授权与合作：需商用请先联系 hello@xinchuan.dev 取得书面授权（标题注明【商用授权】或【改编授权】）
 
 > **English TL;DR** — A capability pack that lets AI agents read the Chinese internet:
 > Douyin, Bilibili, Xiaohongshu, WeChat Official Accounts, Zhihu, Toutiao + 30+ academic /

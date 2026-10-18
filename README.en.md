@@ -1,8 +1,8 @@
 # Caishi: Chinese-internet capabilities for AI
 
 > Author: ZhongQuinnKing (primary account)
-> License: see [LICENSE](LICENSE) (layered: code MIT, content and docs CC BY-NC-ND 4.0; five terms: free to use / free to self-modify / attribution required when redistributing / prior authorization required to publish a modified version / no commercial exemption)
-> Commercial use and collaboration: contact first at hello@xinchuan.dev (subject: [Commercial license] or [Adaptation license])
+> License: see [LICENSE](LICENSE) (layered: code MIT, content and docs CC BY-NC-ND 4.0; five terms: free to use / free to self-modify / attribution required when redistributing / prior authorization required to publish a modified version / no commercial exemption — the license itself grants no commercial rights)
+> Commercial licensing and collaboration: contact hello@xinchuan.dev for written authorization (subject: [Commercial license] or [Adaptation license])
 
 > **TL;DR**: A capability pack that lets AI agents read the Chinese internet:
 > Douyin, Bilibili, Xiaohongshu, WeChat Official Accounts, Zhihu, Toutiao + 30+ academic /
