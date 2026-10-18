@@ -1,0 +1,32 @@
+name: docker
+
+# Docker 镜像构建校验（caishi-mcp 源码档）：推 main 涉及 caishi-mcp 源目录或本工作流时跑。
+# 校验口径与 caishi-mcp/Dockerfile 注释同源＝镜像起得来＋能应答 initialize 与 tools/list（stdio 行式 JSON-RPC）。
+# 只构建不推仓库；镜像发布（GHCR 等）另行立项。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'caishi-mcp/**'
+      - '.github/workflows/docker.yml'
+  workflow_dispatch:
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t caishi-mcp-ci-test caishi-mcp/
+
+      - name: Probe initialize
+        run: |
+          printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"ci-probe","version":"0.0.0"}}}' | timeout 60 docker run -i --rm caishi-mcp-ci-test > /tmp/init.out
+          grep -q '"protocolVersion"' /tmp/init.out
+
+      - name: Probe tools/list
+        run: |
+          printf '%s\n' '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' | timeout 60 docker run -i --rm caishi-mcp-ci-test > /tmp/list.out
+          grep -q '"tools"' /tmp/list.out
