@@ -19,7 +19,7 @@ jobs:
           node-version: '20'
 
       - name: Install opencli
-        run: npm install -g @jackwener/opencli@2.0.2
+        run: npm install -g @jackwener/opencli@1.8.8
 
       - name: Install in-house clis
         run: |
