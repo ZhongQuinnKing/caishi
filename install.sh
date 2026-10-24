@@ -18,7 +18,7 @@ if command -v opencli >/dev/null 2>&1; then
     echo "[2/5] opencli 已装（$(opencli -V 2>/dev/null || echo 版本未知)），跳过"
 else
     echo "[2/5] 安装 opencli ..."
-    npm install -g @jackwener/opencli
+    npm install -g @jackwener/opencli@2.0.2
 fi
 
 # 3) 浏览器扩展（Chrome 安全限制，最后一步必须手动）
