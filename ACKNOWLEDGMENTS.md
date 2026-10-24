@@ -10,6 +10,8 @@
 ## 收录与分发
 
 - [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)（1c7）——把采诗收进独立开发者项目清单。
+- [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)（punkpeye）——2026-10-24 经 PR #16243 收录 `caishi-mcp` 入主榜。
+- [Glama](https://glama.ai)——收录 `caishi-mcp` 并附评分徽章。
 - [mcmservers.org](https://mcmservers.org) ——收录采诗并出徽章。
 - [Smithery](https://smithery.ai) ——收录 `caishi-mcp` 独立包。
 

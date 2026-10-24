@@ -152,4 +152,7 @@ Agent 会自己走上表里对应的命令。
 2026 年 10 月起，收录于 [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)
 （国内独立开发者项目清单，6 万+ 星）程序员版。
 
+2026 年 10 月 24 日，收录于 [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)
+（全网最大 MCP 服务器收录目录，PR #16243，合并时通过全部检验并附 Glama 徽章）。
+
 致谢名单见 [ACKNOWLEDGMENTS.md](./ACKNOWLEDGMENTS.md)。
