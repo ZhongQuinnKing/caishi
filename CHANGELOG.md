@@ -1,5 +1,32 @@
 # 更新记录
 
+## 未发布 · 2026-10-28
+
+- **`zhsee` 二阶段：新增 `zhtable` 与 `zhslice`**（仍然全部本地，不调用第三方视觉 API）。
+  - `zhtable image <表格图>`：用 ffmpeg 取灰度，先认贯穿的框线，再用 tesseract TSV 的词框
+    按中心点落进单元格；识别前把框线涂白，避免线被当成字。默认跑「中英」与「纯中文」
+    两遍，按数字、中文与置信度逐格取优；没有完整框线时退回按文字块空白分列并明确提示。
+    支持 `--json`、`--no-header`、`--scale`、`--lang`。
+  - `zhtable html <HTML 文件或 ->`：标准库直接解析 HTML 表格，支持 rowspan/colspan 展开；
+    多表用 `--table-index` 选，嵌套表格给出提示。
+  - `zhslice <长截图>`：逐行算墨迹，切点只在整行空白里；目标高度附近没空白就扩大搜索，
+    全图都没空白就不切块，绝不把文字行拦腰截断。贯穿全页的表格边与侧栏先涂白再识别；
+    每块 OCR 后按顺序拼回一份。支持 `--slice-height`、`--min-gap`、`--json`、`--keep`。
+  - 两个新命令各自独立，不改 `zhsee` 的入口与一阶段行为；`zhsee --selftest` 复跑全过。
+  - 依赖沿用 tesseract（含 chi_sim）与 ffmpeg，未新增 Python 第三方包。
+
+## 未发布 · 2026-10-26
+
+- **新增 `zhsee`：看见画面里的字**（本地离线，不上传图片与视频）。
+  - `zhsee image <图片或目录>`：逐张 OCR，输出图名与文字；小图自动放大（宽 < 700 用 2 倍），
+    截屏型长图自动找行间空白处切块后分别识别；支持 `--scale`、`--lang`、`--json`。
+  - `zhsee video <视频> [--interval 2] [--max-frames 120]`：按时间抽帧再 OCR，输出带时间戳的
+    段落；相邻相同（或只差 OCR 抖动的几个字）的帧合并，组内取多数版本；默认最多 120 帧，
+    超出时自动放宽间隔覆盖全片并在结果里写明。帧目录可用 `--frames-dir` 指定、`--clean` 清理。
+  - `zhsee --selftest`：一键自测（依赖、小图放大、长图切块、视频抽帧、帧数上限五关）。
+  - 依赖 tesseract（含 chi_sim）与 ffmpeg/ffprobe；安装脚本同步建 `zhsee` 软链。
+  - 现有命令（zhread / zhcheck / zhupdate / opencli 各站命令）输入输出未改。
+
 ## v1.3.0 · 2026-10-18
 
 - **`caishi-mcp` 自实现 MCP 协议层（去包装化）**：去掉 opencli-mcp 依赖，

@@ -6,3 +6,7 @@ __pycache__/
 
 # caishi-mcp 包（工作区）
 caishi-mcp/node_modules/
+
+# zhsee 自测与造测试料时的临时产物（测试料本身 tests/fixtures 要入库）
+tests/.tmp/
+tests/zhsee-fixture-*/

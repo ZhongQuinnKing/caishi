@@ -53,7 +53,7 @@ IMSLP 与弹琴吧乐谱、dblp 学术检索、网页正文读取）：命令行
 抖音详情／小红书笔记／任意网页正文）：`npm install -g caishi-mcp`。
 装法与边界见 [caishi-mcp/README.md](./caishi-mcp/README.md) 与 [MCP.md](./MCP.md)。
 
-### 另带三个小工具
+### 另带六个小工具
 
 - **`zhread "<链接>"`** —— 一条命令读中文互联网：自动识别平台（抖音/B站/公众号/知乎/小红书/乐谱站），
   输出统一格式 Markdown；`--save 目录` 存成文件。跨平台就是它。
@@ -65,6 +65,18 @@ IMSLP 与弹琴吧乐谱、dblp 学术检索、网页正文读取）：命令行
   （会依次打开各平台页面并事先提示）。平台哪天坏了，先跑它。
 - **`zhupdate`** —— 自更新与修复：比对远程最新版本，git 安装自动拉取并重跑部署；
   修不了的问题给出上报模板（平台改版是常态，修好的版本当天就能到）。一个查、一个修。
+- **`zhsee`** —— 看见画面里的字：本地图片 OCR 与视频抽帧 OCR。
+  `zhsee image 配图/` 逐张识别图片里的文字，小图自动放大，截屏型长图自动切块；
+  `zhsee video 录屏.mp4 --interval 2` 每两秒抽一帧识别，输出带时间戳的段落，
+  相邻相同（或只差 OCR 抖动几个字）的文字自动合并。默认最多抽 120 帧，超出会放宽间隔
+  覆盖全片并在结果里写明。全部在本机运行，不上传图片与视频；需要 tesseract（含 chi_sim）
+  与 ffmpeg。`zhsee --selftest` 一键自测。
+- **`zhtable`** —— 把表格取成行列表：表格图先认框线，再把 OCR 的词框按位置落进格子；
+  没有框线的图按文字块空白兜底分列。网页里的表格可以直接解析 HTML，不经过 OCR。
+  `zhtable image 课表.png --json`、`zhtable html 页面.html`。
+- **`zhslice`** —— 超长截图切块取字，再拼回一份：先算每行有多少墨迹，切点只落在
+  整行空白里；找不到空白就不切，宁可交一整块，也不把文字行拦腰截断。贯穿全页的
+  表格边或侧栏会先涂白，再逐块识别。`zhslice 长截图.png`、`zhslice 长图.png --json`。
 
 ### 可选通道：反爬挑战墙兜底
 
@@ -80,6 +92,16 @@ IMSLP 与弹琴吧乐谱、dblp 学术检索、网页正文读取）：命令行
 2. 手动一步：Chrome 打开 `chrome://extensions` → 开发者模式 → 「加载已解压的扩展程序」
    → 选 `~/.opencli/extension`（脚本会把扩展文件准备好，商店装了也行）
 3. 按需登录平台：在同一个浏览器里打开对应网站扫码登录即可（一次长期有效）
+
+想用 `zhsee` / `zhtable` / `zhslice` 处理图片与视频，另需 tesseract（含 chi_sim 语言包）
+与 ffmpeg：
+
+```
+macOS:          brew install tesseract tesseract-lang ffmpeg
+Debian/Ubuntu:  sudo apt install tesseract-ocr tesseract-ocr-chi-sim ffmpeg
+```
+
+装好后跑 `zhsee --selftest`，五项全过即可用。
 
 ## 用法（给 AI 的一句话）
 
@@ -108,6 +130,9 @@ Agent 会自己走上表里对应的命令。
 - **登录建议用测试号/小号**，别把主力账号往上挂。
 - **小红书会话短命**：关掉浏览器就掉登录，用的时候保持浏览器开着；撞上"设备超限"风控就停一两天再登。
 - 抖音/小红书等平台改版频繁，接口可能失效——坏了欢迎提 issue。
+- **`zhsee` / `zhtable` / `zhslice` 完全本地**：图片与视频不出本机，OCR 不调用任何网络服务；
+  临时文件只写进本机缓存（`~/.cache/caishi/` 下）或你用 `--frames-dir` / `--work-dir` /
+  `--out-dir` 指定的目录。
 - 本包不含需要翻墙的平台（YouTube、Twitter 等），它们不在此列。
 
 ## 姊妹篇

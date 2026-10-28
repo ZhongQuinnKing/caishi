@@ -42,7 +42,7 @@ In-house additions make up nine pieces covering 14 commands (Douyin detail / com
 
 AI that cannot run shell commands is not left out. The standalone package [`caishi-mcp`](./caishi-mcp/) is a self-contained MCP server (the protocol layer is implemented in the package itself, with no MCP SDK dependency; the browser engine installs with it), so any MCP client works: Claude Desktop, Cursor, Codex, DeepSeek Harness and others all reach the same capabilities (the same browser, the same signed-in session). Four site commands (Bilibili video / Douyin detail / Xiaohongshu note / any web page): `npm install -g caishi-mcp`. Setup and limits are in [caishi-mcp/README.md](./caishi-mcp/README.md) and [MCP.en.md](./MCP.en.md).
 
-### Three companion utilities
+### Six companion utilities
 
 - **`zhread "<link>"`**: read the Chinese internet with one command. It detects the platform (Douyin / Bilibili / WeChat Official Accounts / Zhihu / Xiaohongshu / score sites) and prints a uniform Markdown shape; `--save DIR` writes it to a file. This is the one that crosses platforms.
 
@@ -51,6 +51,9 @@ AI that cannot run shell commands is not left out. The standalone package [`cais
   *Real recording: `zhread` reads a Bilibili video in one command. Wait phase compressed; output uncut.*
 - **`zhcheck`**: platform health check. A light pass by default (it probes only the browser bridge, opening no pages); `--deep` probes platform by platform (it opens each platform's pages in turn and warns beforehand). When a platform breaks, run this first.
 - **`zhupdate`**: update and repair. It compares against the latest remote version, then for a git install pulls and re-runs the deploy; for problems it cannot fix it hands you a report template. Platforms redesign often, and a fixed build can land the same day. One checks, one fixes.
+- **`zhsee`**: see the words inside images. `zhsee image DIR_OR_FILES` OCRs local images one by one, upscaling small ones and slicing long screenshots; `zhsee video CLIP --interval 2` samples a frame every two seconds, OCRs each one, and prints timestamped passages, merging adjacent frames whose text matches (or differs only by OCR jitter). At most 120 frames by default; if the requested interval would exceed that, it widens the interval to cover the whole clip and says so. Everything runs locally: no uploads, no network OCR. Needs tesseract (with chi_sim) and ffmpeg. `zhsee --selftest` runs the built-in checks.
+- **`zhtable`**: turn a table into rows. For table images it finds the ruling lines, then assigns Tesseract word boxes to the resulting cells; borderless images fall back to splitting on whitespace between text blocks. HTML tables are parsed directly, with no OCR. `zhtable image timetable.png --json`, `zhtable html page.html`.
+- **`zhslice`**: slice a very long screenshot into readable chunks and stitch the text back. It measures ink on every row and places cuts only in full-width blank gaps; if no gap exists it refuses to cut rather than cutting through a line of text. Full-height table borders or sidebars are painted out before OCR. `zhslice long.png`, `zhslice long.png --json`.
 
 ## Install
 
@@ -59,6 +62,15 @@ Prerequisite: macOS (or any desktop OS that can run Node) plus Chrome/Chromium.
 1. Run `bash install.sh` (installs opencli, downloads the browser extension files, and installs the in-house commands).
 2. One manual step: in Chrome open `chrome://extensions`, turn on Developer mode, choose "Load unpacked", and pick `~/.opencli/extension`. The script prepares the extension files; a store install also works.
 3. Sign in to platforms as needed: open the site in that same browser and scan the QR code once (valid long-term).
+
+For `zhsee` / `zhtable` / `zhslice` (text inside images, table images and video frames) you also need tesseract with the chi_sim language pack, plus ffmpeg:
+
+```
+macOS:          brew install tesseract tesseract-lang ffmpeg
+Debian/Ubuntu:  sudo apt install tesseract-ocr tesseract-ocr-chi-sim ffmpeg
+```
+
+Run `zhsee --selftest` afterwards; all five checks should pass.
 
 ## Usage (one line for your AI)
 
@@ -84,6 +96,7 @@ One sentence: **deep reads (comments, saved items, subtitles, exports …) need 
 - **Sign in with a test or secondary account**, not your main one.
 - **Xiaohongshu sessions are short-lived**: closing the browser drops the login, so keep the browser open while you use it. If you hit its "too many devices" risk control, wait a day or two before signing in again.
 - Douyin, Xiaohongshu and similar platforms redesign often, so an endpoint can stop working; if it breaks, open an issue.
+- **`zhsee` / `zhtable` / `zhslice` stay local**: images and video never leave your machine and OCR makes no network calls. Temporary files go only to the local cache (under `~/.cache/caishi/`) or the directory you pass with `--frames-dir` / `--work-dir` / `--out-dir`.
 - The pack leaves out platforms that need a VPN (YouTube, Twitter and the like); they are out of scope.
 
 ## Sibling projects

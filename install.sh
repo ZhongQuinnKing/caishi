@@ -55,11 +55,17 @@ if [ -d "$HERE/bin" ]; then
     mkdir -p "$HOME/.local/bin"
     cp "$HERE/bin/"*.py "$HOME/.local/bin/"
     chmod +x "$HOME/.local/bin/"*.py
-    rm -f "$HOME/.local/bin/zhread" "$HOME/.local/bin/zhcheck" 2>/dev/null
+    rm -f "$HOME/.local/bin/zhread" "$HOME/.local/bin/zhcheck" "$HOME/.local/bin/zhsee" "$HOME/.local/bin/zhtable" "$HOME/.local/bin/zhslice" 2>/dev/null
     ln -sf "$HOME/.local/bin/zhread.py" "$HOME/.local/bin/zhread"
     ln -sf "$HOME/.local/bin/zhcheck.py" "$HOME/.local/bin/zhcheck"
     ln -sf "$HOME/.local/bin/zhupdate.py" "$HOME/.local/bin/zhupdate"
-    echo "        zhread / zhcheck / zhupdate 已装到 ~/.local/bin/（确保它在 PATH 里）"
+    ln -sf "$HOME/.local/bin/zhsee.py" "$HOME/.local/bin/zhsee"
+    ln -sf "$HOME/.local/bin/zhtable.py" "$HOME/.local/bin/zhtable"
+    ln -sf "$HOME/.local/bin/zhslice.py" "$HOME/.local/bin/zhslice"
+    echo "        zhread / zhcheck / zhupdate / zhsee / zhtable / zhslice 已装到 ~/.local/bin/（确保它在 PATH 里）"
+    if ! command -v tesseract >/dev/null 2>&1 || ! command -v ffmpeg >/dev/null 2>&1; then
+        echo "        zhsee / zhtable / zhslice（图片与视频文字识别）还需要 tesseract（chi_sim）与 ffmpeg，见 README"
+    fi
     mkdir -p "$HOME/.config/caishi"
     echo "$HERE" > "$HOME/.config/caishi/home"   # 记录仓库位置，供 zhupdate 定位
 fi
